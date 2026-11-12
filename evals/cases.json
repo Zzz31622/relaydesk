@@ -1,0 +1,90 @@
+[
+  {
+    "id": "EVAL-01",
+    "title": "Checkout API returns 502 after EU deployment",
+    "description": "Production checkout cannot complete payment after an EU canary deployment.",
+    "logs": "gateway_5xx=40% upstream timeout active_revision=checkout-eu-7f3c",
+    "productArea": "API Gateway",
+    "environment": "Production / EU",
+    "accountTier": "Enterprise",
+    "expectedSeverity": "P1",
+    "expectedRunbook": "RB-014"
+  },
+  {
+    "id": "EVAL-02",
+    "title": "Okta users stuck in SAML login loop",
+    "description": "Users authenticate and then return to login after a certificate update.",
+    "logs": "saml_status=success acs_redirect=login cert_changed=true",
+    "productArea": "Identity",
+    "environment": "Production / US",
+    "accountTier": "Business",
+    "expectedSeverity": "P2",
+    "expectedRunbook": "RB-021"
+  },
+  {
+    "id": "EVAL-03",
+    "title": "Webhook retries create duplicate invoices",
+    "description": "A billing event was delivered four times after the customer endpoint timed out.",
+    "logs": "delivery_attempt=3 event_id=evt_91 duplicate=4",
+    "productArea": "Integrations",
+    "environment": "Production / Global",
+    "accountTier": "Enterprise",
+    "expectedSeverity": "P2",
+    "expectedRunbook": "RB-033"
+  },
+  {
+    "id": "EVAL-04",
+    "title": "Dashboard latency above SLO",
+    "description": "The executive dashboard is slow with high-cardinality filters.",
+    "logs": "p95_render=32s widget_queries=46 cache_hit=18%",
+    "productArea": "Analytics",
+    "environment": "Production / US",
+    "accountTier": "Growth",
+    "expectedSeverity": "P3",
+    "expectedRunbook": "RB-041"
+  },
+  {
+    "id": "EVAL-05",
+    "title": "Enterprise CSV export stuck and partial",
+    "description": "A large export job remains in processing and the previous download was partial.",
+    "logs": "job_state=processing retry_count=4 file_manifest=incomplete",
+    "productArea": "Data",
+    "environment": "Production / Global",
+    "accountTier": "Enterprise",
+    "expectedSeverity": "P2",
+    "expectedRunbook": "RB-052"
+  },
+  {
+    "id": "EVAL-06",
+    "title": "User gets permission denied after role change",
+    "description": "An admin user cannot open a resource after a role update.",
+    "logs": "role=admin resource_denied=true session_age=2h",
+    "productArea": "Authorization",
+    "environment": "Production / EU",
+    "accountTier": "Enterprise",
+    "expectedSeverity": "P2",
+    "expectedRunbook": "RB-063"
+  },
+  {
+    "id": "EVAL-07",
+    "title": "Transactional email delayed by recipient provider",
+    "description": "Messages are accepted but arrive hours late without a bounce.",
+    "logs": "accepted=202 provider_delay=true bounce=none",
+    "productArea": "Messaging",
+    "environment": "Production / US",
+    "accountTier": "Business",
+    "expectedSeverity": "P3",
+    "expectedRunbook": "RB-071"
+  },
+  {
+    "id": "EVAL-08",
+    "title": "API client receives 429 burst errors",
+    "description": "An integration exceeds its quota and retries every request immediately.",
+    "logs": "http_status=429 retry_interval=0 burst=600",
+    "productArea": "API",
+    "environment": "Production / Global",
+    "accountTier": "Enterprise",
+    "expectedSeverity": "P2",
+    "expectedRunbook": "RB-082"
+  }
+]

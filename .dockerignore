@@ -1,0 +1,11 @@
+.git
+.github
+.env
+node_modules
+coverage
+docs
+evals
+scripts
+tests
+work
+outputs

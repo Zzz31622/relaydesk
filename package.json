@@ -1,0 +1,16 @@
+{
+  "name": "relaydesk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI escalation copilot for forward-deployed support engineering",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "eval": "node scripts/evaluate.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
